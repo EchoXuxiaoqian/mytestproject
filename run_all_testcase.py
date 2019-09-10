@@ -14,4 +14,6 @@ if __name__ == '__main__':
     file_path = base_dir + "\\testpro1\\report\\" 
     testrunner = HTMLTestRunner(output=file_path,report_title='测试报告',report_name='Test Report',template='report_template.html') # 自定义测试报告模板
     # 问题：1.输出的报告中文乱码 ————> 报告的编码格式非utf-8，需要将编码转换为utf-8，直接生成utf-8编码格式的方法未找到
+    # 问题：2.WingIde在DEBUG模式下查看变量中文乱码 ————>  Edit-Preference-Debugger-I/O，默认编码设置为utf-8
+    # 问题：3.WingIde打开utf-8编码的文件中文乱码  ————>  Edit-Preference-Files，默认编码设置为utf-8 
     testrunner.run(allcase)    

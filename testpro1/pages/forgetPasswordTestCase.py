@@ -17,7 +17,7 @@ from model import myfunction,myunittest
 
 
 class ForgetPasswordTest(myunittest.MyTest):
-    def test_verify_all_empty(self):
+    def test_forgetpwd_001_verify_all_empty(self):
         account = ''
         certificateno = ''
         username = ''
@@ -25,7 +25,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'代理商账号/登录号不能为空！')
         
-    def test_verify_certificateno_empty(self):
+    def test_forgetpwd_002_verify_certificateno_empty(self):
         account = 'A0000000000001'
         certificateno = ''
         username = ''
@@ -33,7 +33,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'证件号码不能为空！')            
     
-    def ntest_verify_username_empty(self):
+    def test_forgetpwd_003_verify_username_empty(self):
         account = 'A0000000000001'
         certificateno = '12'
         username = ''
@@ -41,7 +41,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'操作员帐号不能为空')      
         
-    def ntest_verify_account_wrong(self):
+    def test_forgetpwd_004_verify_account_wrong(self):
         account = 'A0000000000000'
         certificateno = '1'
         username = '1'
@@ -49,7 +49,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'Agent No is incorrect, please input again!')   
         
-    def ntest_verify_certificateno_wrong(self):
+    def test_forgetpwd_005_verify_certificateno_wrong(self):
         account = 'A0000000000001'
         certificateno = '0'
         username = '1'
@@ -57,7 +57,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'Certificate No is incorrect, please input again!')   
         
-    def ntest_verify_username_wrong(self):
+    def test_forgetpwd_006_verify_username_wrong(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = '1'
@@ -65,7 +65,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.alert_error_hint(),'The operator does not exist, please input again!') 
         
-    def ntest_verify_all_succeed(self):
+    def test_forgetpwd_007_verify_all_succeed(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
@@ -73,7 +73,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.verify_action(account, certificateno, username)
         self.assertEqual(po.driver.current_url,po.base_url + 'html/design/findPwd2.jsp')   
         
-    def ntest_submit_type_empty(self):
+    def test_forgetpwd_008_submit_type_empty(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
@@ -84,7 +84,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.submit_action(search_type, email)
         self.assertEqual(po.alert_error_hint(),'请选择找回登录密码方式')   
         
-    def ntest_submit_email_empty(self):
+    def test_forgetpwd_009_submit_email_empty(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
@@ -95,7 +95,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.submit_action(search_type, email)
         self.assertEqual(po.alert_error_hint(),'邮箱格式不正确，请确认后再输！') 
         
-    def ntest_submit_email_error(self):
+    def test_forgetpwd_010_submit_email_error(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
@@ -106,7 +106,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.submit_action(search_type, email)
         self.assertEqual(po.alert_error_hint(),'邮箱格式不正确，请确认后再输！') 
             
-    def ntest_submit_email_wrong(self):
+    def test_forgetpwd_011_submit_email_wrong(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
@@ -117,7 +117,7 @@ class ForgetPasswordTest(myunittest.MyTest):
         po.submit_action(search_type, email)
         self.assertEqual(po.alert_error_hint(),'邮箱输入不正确！') 
         
-    def ntest_submit_all_succeed(self):
+    def test_forgetpwd_012_submit_all_succeed(self):
         account = 'A0000000000001'
         certificateno = '123333'
         username = 'admin'
