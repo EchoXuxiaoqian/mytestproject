@@ -16,7 +16,7 @@ from HtmlTestRunner import HTMLTestRunner
 from model import myfunction,myunittest
 
 class LoginTest(myunittest.MyTest):
-    def test_login_all_empty(self):
+    def test_login_001_all_empty(self):
         account = ''
         username = ''
         password = ''
@@ -25,9 +25,9 @@ class LoginTest(myunittest.MyTest):
         po.login_action(account, username, password, vercode)
         error = po.login_error_hint()
         print(error)
-        self.assertEqual(po.login_error_hint(),'请输入代理商账号或登录号1！')
+        self.assertEqual(po.login_error_hint(),'请输入代理商账号或登录号！')
         
-    def test_login_username_empty(self):
+    def test_login_002_username_empty(self):
         account = 'A0000000000001'
         username = ''
         password = ''
@@ -36,7 +36,7 @@ class LoginTest(myunittest.MyTest):
         po.login_action(account, username, password, vercode)
         self.assertEqual(po.login_error_hint(),'请输入代理商操作员账号！')   
         
-    def ntest_login_password_empty(self):
+    def test_login_003_password_empty(self):
         account = 'A0000000000001'
         username = 'admin'
         password = ''
@@ -45,7 +45,7 @@ class LoginTest(myunittest.MyTest):
         po.login_action(account, username, password, vercode)
         self.assertEqual(po.login_error_hint(),'密码不能为空！')  
         
-    def ntest_login_vercode_empty(self):
+    def test_login_004_vercode_empty(self):
         account = 'A0000000000001'
         username = 'admin'
         password = 'hx888888'
@@ -54,7 +54,7 @@ class LoginTest(myunittest.MyTest):
         po.login_action(account, username, password, vercode)
         self.assertEqual(po.login_error_hint(),'请输入四位验证码！')    
         
-    def ntest_login_vercode_wrong(self):
+    def test_login_005_vercode_wrong(self):
         account = 'A0000000000001'
         username = 'admin'
         password = 'hx888888'
